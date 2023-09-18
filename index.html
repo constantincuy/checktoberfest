@@ -1,0 +1,171 @@
+<html>
+   <head>
+       <title>Hello World</title>
+       <style>
+           * {
+               box-sizing: border-box;
+           }
+           .title {
+               text-align: center;
+               font-weight: 100;
+               font-size: 3.75rem;
+               letter-spacing: 5px;
+               background: linear-gradient(rgba(255, 0, 0, 0), #444, rgba(255, 0, 0, 0));
+               -webkit-background-clip: text;
+               -webkit-text-fill-color: transparent;
+               margin-bottom: 0;
+           }
+           @media screen and (min-width: 37.5em) {
+               .title {
+                   font-size: 4.75rem;
+               }
+           }
+           p {
+               margin: 0 auto 2rem;
+               text-align: center;
+               font-size: 1.25rem;
+               color: #444;
+               font-weight: 100;
+               width: 90%;
+           }
+           .checktoberfest-events-gallery {
+               width: 90%;
+               margin: 50px auto;
+               max-width: 1200px;
+           }
+           .checktoberfest-events {
+               position: relative;
+               display: block;
+               width: 90%;
+               height: 250px;
+               margin: 0 auto 2rem;
+               background-size: cover;
+               border-radius: 10px;
+               box-shadow: 0 25px 50px rgba(0, 0, 0, .5);
+               overflow: hidden;
+               transition: all 0.4s ease;
+           }
+           @media screen and (min-width: 37.5em) {
+               .checktoberfest-events {
+                   height: 300px;
+               }
+           }
+           @media screen and (min-width: 45em) {
+               .checktoberfest-events {
+                   display: inline-block;
+                   width: 45%;
+                   margin-left: 25px;
+               }
+           }
+           .checktoberfest-events__overlay {
+               width: 100%;
+               height: 100%;
+               position: absolute;
+               top: 0;
+               z-index: 10;
+           }
+           .checktoberfest-events__overlay:after {
+               content: '';
+               width: 100%;
+               border-radius: 10px;
+               height: 100%;
+               background-color: #202020;
+               opacity: 0;
+               position: absolute;
+               top: 0;
+               z-index: -10;
+               left: 0;
+               transition: all 0.3s ease;
+           }
+           .checktoberfest-events__title {
+               position: relative;
+               top: -200px;
+               margin-bottom: 2rem;
+               margin-top: 4rem;
+               font-size: 2.25rem;
+               font-weight: 100;
+               color: white;
+               text-align: center;
+               letter-spacing: 5px;
+               transition: all 0.3s cubic-bezier(0.3, 0, 0, 1.3);
+           }
+           .checktoberfest-events__link {
+               position: relative;
+               display: block;
+               width: 60%;
+               top: 200px;
+               padding: 10px;
+               margin: 0 auto;
+               color: white;
+               letter-spacing: 3px;
+               text-decoration: none;
+               text-align: center;
+               border: 2px solid white;
+               border-radius: 3px;
+               font-size: 1.25em;
+               transition: all 0.3s cubic-bezier(0.3, 0, 0, 1.3);
+           }
+           .checktoberfest-events__link:hover {
+               background-color: white;
+               color: #202020;
+           }
+           .checktoberfest-events:hover .checktoberfest-events__title {
+               top: 0;
+           }
+           .checktoberfest-events:hover .checktoberfest-events__link {
+               top: 0;
+           }
+           .checktoberfest-events:hover .checktoberfest-events__overlay:after {
+               opacity: 0.75;
+           }
+           .checktoberfest-events {
+               background-image: url('https://secure.meetupstatic.com/photos/event/4/f/9/e/600_515900382.webp?w=384');
+           }
+           .event-date-title {
+               color: white;
+               width: 100%;
+               height: 35px;
+               padding-top: 5px;
+               background: rgba(90, 90, 90, 0.3);
+           }
+       </style>
+   </head>
+   <body>
+       <div class="checktoberfest-events-gallery">
+           <h1 class="title">CHECKTOBERFEST Events</h1>
+           <p>tbd</p>
+
+           <div class="checktoberfest-events">
+               <div class="checktoberfest-events__overlay">
+                   <h2 class="checktoberfest-events__title">CHECKTOBERFEST 1/4</h2>
+                   <a class="checktoberfest-events__link" href="https://www.meetup.com/de-DE/web-engineering-duesseldorf/events/296148432/">Meetup</a>
+               </div>
+               <p class="event-date-title">THU, OCT 5, 2023 5:00 PM</p>
+           </div>
+
+           <div class="checktoberfest-events">
+               <div class="checktoberfest-events__overlay">
+                   <h2 class="checktoberfest-events__title">CHECKTOBERFEST 2/4</h2>
+                   <a class="checktoberfest-events__link" href="https://www.meetup.com/de-DE/web-engineering-duesseldorf/events/296148781/">Meetup</a>
+               </div>
+               <p class="event-date-title">THU, OCT 12, 2023 5:00 PM</p>
+           </div>
+
+           <div class="checktoberfest-events">
+               <div class="checktoberfest-events__overlay">
+                   <h2 class="checktoberfest-events__title">CHECKTOBERFEST 3/4</h2>
+                   <a class="checktoberfest-events__link" href="https://www.meetup.com/de-DE/web-engineering-duesseldorf/events/296148808/">Meetup</a>
+               </div>
+               <p class="event-date-title">THU, OCT 19, 2023 5:00 PM</p>
+           </div>
+
+           <div class="checktoberfest-events">
+               <div class="checktoberfest-events__overlay">
+                   <h2 class="checktoberfest-events__title">CHECKTOBERFEST 4/4</h2>
+                   <a class="checktoberfest-events__link" href="https://www.meetup.com/de-DE/web-engineering-duesseldorf/events/296148822/">Meetup</a>
+               </div>
+               <p class="event-date-title">THU, OCT 26, 2023 5:00 PM</p>
+           </div>
+       </div>
+   </body>
+</html>
