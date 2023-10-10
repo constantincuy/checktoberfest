@@ -122,6 +122,13 @@
            .checktoberfest-events-agb {
                background-image: url('https://secure.meetupstatic.com/photos/event/5/9/7/600_516121431.webp?w=384');
            }
+           .checktoberfest-events-hh {
+               background-image: url("https://secure.meetupstatic.com/photos/event/8/5/b/2/600_516334226.webp?w=384");
+           }
+           .previous-event {
+               background-image: url('https://secure.meetupstatic.com/photos/event/4/f/9/e/600_515900382.webp?w=384');
+               opacity: 0.75;
+           }
            .event-date-title {
                color: white;
                width: 100%;
@@ -563,6 +570,8 @@
           class="panel-radios" type="radio" name="tab-radios" checked>
    <input id="panel-2-ctrl"
           class="panel-radios" type="radio" name="tab-radios">
+   <input id="panel-3-ctrl"
+          class="panel-radios" type="radio" name="tab-radios">
    <input id="nav-ctrl"
           class="panel-radios" type="checkbox" name="nav-checkbox">
 
@@ -581,6 +590,10 @@
  --><li id="li-for-panel-2">
        <label class="panel-label"
               for="panel-2-ctrl">Augsburg</label>
+   </li><!--INLINE-BLOCK FIX
+ --><li id="li-for-panel-3">
+       <label class="panel-label"
+              for="panel-3-ctrl">Hamburg</label>
    </li>
        <label id="close-nav-label" for="nav-ctrl">Close</label>
    </ul>
@@ -595,14 +608,6 @@
                         <p>Heinrich-Heine-Allee 53<br>40213 Düsseldorf<br>4th level</p>
                    </div>
                    <div class="checktoberfest-events-gallery">
-                       <div class="checktoberfest-events checktoberfest-events-dus">
-                           <div class="checktoberfest-events__overlay">
-                               <h2 class="checktoberfest-events__title">CHECKTOBERFEST 1/4</h2>
-                               <a class="checktoberfest-events__link" target="_blank" href="https://www.meetup.com/de-DE/web-engineering-duesseldorf/events/296148432/">Meetup</a>
-                           </div>
-                           <p class="event-date-title">THU, OCT 5, 2023 5:00 PM</p>
-                       </div>
-
                        <div class="checktoberfest-events checktoberfest-events-dus">
                            <div class="checktoberfest-events__overlay">
                                <h2 class="checktoberfest-events__title">CHECKTOBERFEST 2/4</h2>
@@ -627,6 +632,20 @@
                            <p class="event-date-title">THU, OCT 26, 2023 5:00 PM</p>
                        </div>
                    </div>
+
+                   <hr>
+
+                   <div class="checktoberfest-events-gallery">
+                       <p class="title">Previous events</p>
+
+                       <div class="checktoberfest-events checktoberfest-events-dus previous-event">
+                           <div class="checktoberfest-events__overlay">
+                               <h2 class="checktoberfest-events__title">CHECKTOBERFEST 1/4</h2>
+                               <a class="checktoberfest-events__link" target="_blank" href="https://www.meetup.com/de-DE/web-engineering-duesseldorf/events/296148432/">Meetup</a>
+                           </div>
+                           <p class="event-date-title">THU, OCT 5, 2023 5:00 PM</p>
+                       </div>
+                   </div>
                </main>
            </section>
            <section id="panel-2">
@@ -642,6 +661,23 @@
                             <a class="checktoberfest-events__link" target="_blank" href="https://www.meetup.com/de-DE/check-it-augsburg/events/296332343/">Meetup</a>
                         </div>
                         <p class="event-date-title">THU, OCT 12, 2023 5:30 PM</p>
+                    </div>
+                </div>
+            </main>
+           </section>
+           <section id="panel-3">
+            <main>
+                <div>
+                    <p class="title">Location</p>
+                    <p>An d. Alster 64<br>20099 Hamburg</p>
+                </div>
+                <div class="checktoberfest-events-gallery">
+                    <div class="checktoberfest-events checktoberfest-events-hh">
+                        <div class="checktoberfest-events__overlay">
+                            <h2 class="checktoberfest-events__title">CHECKTOBERFEST</h2>
+                            <a class="checktoberfest-events__link" target="_blank" href="https://www.meetup.com/check-it-hamburg/events/296535456/">Meetup</a>
+                        </div>
+                        <p class="event-date-title">THU, OCT 19, 2023 5:30 PM</p>
                     </div>
                 </div>
             </main>
