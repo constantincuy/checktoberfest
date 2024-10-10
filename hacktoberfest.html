@@ -1,0 +1,274 @@
+<html lang="en">
+   <head>
+       <title>Checktoberfest '24 Events</title>
+
+       <meta charset="UTF-8">
+       <meta name="description" content="Checktoberfest '24 Events">
+       <meta name="keywords" content="Hacktoberfest, Checktoberfest, Check24, Web Engineering Düsseldorf, Meetup, Dario Tilgner">
+       <meta name="author" content="Dario Tilgner">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+       <link rel="apple-touch-icon" sizes="180x180" href="https://www.check24.de/apple-touch-icon.png"/>
+       <link rel="icon" type="image/png" sizes="32x32" href="https://www.check24.de/favicon-32x32.png"/>
+       <link rel="icon" type="image/png" sizes="16x16" href="https://www.check24.de/favicon-16x16.png"/>
+       <link rel="mask-icon" href="https://www.check24.de/safari-pinned-tab.svg" color="#063773"/>
+       <link rel="shortcut icon" href="https://www.check24.de/favicon.ico"/>
+
+       <style>
+           * {
+               box-sizing: border-box;
+           }
+           p, li {
+               margin: 0 auto 2rem;
+               text-align: center;
+               font-size: 1.25rem;
+               color: #444;
+               font-weight: 100;
+               width: 90%;
+           }
+           a {
+                color: #444;
+                font-weight: bold;
+                text-decoration: underline;
+           }
+           #panels {
+               background-color: white;
+           }
+           #panels .container {
+               margin: 0 auto;
+               width: 90%;
+           }
+           #panels section header label.panel-label {
+               padding: 12px 24px;
+               box-sizing: border-box;
+           }
+           #panels section main {
+               box-sizing: border-box;
+               max-height: 0;
+               opacity: 0;
+               transition: opacity 600ms;
+               overflow-y: hidden;
+           }
+           #panel-1-ctrl:checked ~ #panels #panel-1 main {
+               max-height: initial;
+               opacity: 1;
+               padding: 48px 24px;
+           }
+           @media all and (max-width: 767px) {
+               #nav-ctrl:checked ~ #tabs-list #li-for-panel-1 {
+                   max-height: 46px;
+                   opacity: 1;
+               }
+               #nav-ctrl:checked ~ #tabs-list #open-nav-label {
+                   display: none;
+               }
+
+               #nav-ctrl:checked ~ #tabs-list #close-nav-label {
+                   max-height: 36px;
+                   opacity: 1;
+                   padding: 12px 24px;
+               }
+               #tabs-list {
+                   position: relative;
+               }
+               #tabs-list label.panel-label {
+                   padding: 12px 0;
+               }
+               #tabs-list #li-for-panel-1 {
+                   max-height: 0;
+                   overflow-y: hidden;
+                   transition: max-height 200ms;
+               }
+               #panel-1-ctrl:checked ~ #tabs-list #li-for-panel-1 {
+                   max-height: 46px;
+                   opacity: 1;
+               }
+               #panel-1-ctrl:checked ~ #tabs-list #li-for-panel-1 label.panel-label {
+                   background-color: white;
+                   color: #063773;
+                   background-color: #063773;
+                   color: white;
+               }
+               #panels .container {
+                   width: 100%;
+               }
+               #panels section header {
+                   display: block;
+               }
+           }
+           @media all and (min-width: 768px) {
+               #panel-1-ctrl:checked ~ #tabs-list #li-for-panel-1 {
+                   pointer-events: none;
+                   cursor: default;
+                   transform: translate3d(0, 1px, 0);
+                   box-shadow: none;
+                   border-right: none;
+               }
+               #panel-1-ctrl:checked ~ #tabs-list #li-for-panel-1.last {
+                   border-right: 1px solid transparent;
+               }
+               #panel-1-ctrl:checked ~ #tabs-list #li-for-panel-1 + li {
+                   border-left: 1px solid #dfdfdf;
+               }
+               #panel-1-ctrl:checked ~ #tabs-list #li-for-panel-1 label.panel-label {
+                   background-color: white;
+                   color: #063773;
+                   padding-top: 26px;
+               }
+               #panel-1-ctrl:checked ~ #tabs-list #li-for-panel-1 label.panel-label::after {
+                   height: 6px;
+               }
+           }
+           @media all and (min-width: 900px) {
+               main {
+                   width: 80%;
+                   margin: 0 auto;
+               }
+           }
+           .panel-radios {
+               position: fixed;
+               left: 50%;
+               top: 10px;
+               width: 20px;
+               opacity: 0.5;
+               z-index: 99;
+               display: none;
+           }
+           body {
+            background: rgb(0,94,168);
+            background: radial-gradient(circle, rgba(0,94,168,1) 0%, rgba(6,55,115,1) 70%);
+                color: #444;
+               font-family: "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
+           }
+           
+           main h1 {
+               margin-top: 0;
+               font-weight: 300;
+               color: #063773;
+               padding-bottom: 20px;
+           }
+           main p, main li {
+               line-height: 1.8;
+               font-family: Arial, sans-serif;
+           }
+           main hr {
+               margin: 12px 0;
+               border-top: 1px solid #dfdfdf;
+           }
+           .title {
+               color: #063773;
+               font-weight: bold;
+               margin-bottom: 0;
+           }
+
+           #introduction {
+               width: 90%;
+               margin: 0 auto;
+               padding: 48px 24px;
+               text-align: center;
+               font-weight: bold;
+               font-size: 5rem;
+           }
+           .introduction-title {
+               font-family: 'Space Mono', monospace;
+               border-radius: clamp(0.4rem, 0.75vw, 1rem);
+               padding: 30px;
+               display: inline-block;
+               color: white;
+               text-shadow: 3px 2px 7px rgba(0,0,0,0.3);
+           }
+           .introduction-title:hover {
+               color: rgb(11,34,63);
+               text-shadow: 3px 2px 7px rgba(0,94,168,0.3);
+           }
+           .link-nav {
+               position: fixed;
+               width: 100%;
+               text-align: center;
+               z-index: 100;
+           }
+           .link-nav a {
+               color: white;
+               font-weight: bold;
+               font-size: 1.5rem;
+               padding: 10px;
+               background-color: rgba(76,96,133,0.8);
+               border-radius: 0 0 10px 10px;
+           }
+           .link-nav a::before {
+               content: "➡️ ";
+           }
+       </style>
+
+       <script>
+           document.addEventListener("DOMContentLoaded", () => {
+               const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+               let interval = null;
+
+               document.querySelector(".introduction-title").onmouseover = event => {
+                   let iteration = 0;
+                   clearInterval(interval);
+
+                   interval = setInterval(() => {
+                       event.target.innerText = event.target.innerText
+                           .split("")
+                           .map((letter, index) => {
+                               if(index < iteration) {
+                                   return event.target.dataset.value[index];
+                               }
+
+                               return letters[Math.floor(Math.random() * 26)];
+                           })
+                           .join("");
+
+                       if(iteration >= event.target.dataset.value.length){
+                           clearInterval(interval);
+                       }
+
+                       iteration += 1 / 3;
+                   }, 30);
+               };
+           });
+       </script>
+   </head>
+   <body>
+   <div class="link-nav">
+       <a href="index.html">Events</a>
+   </div>
+
+   <input id="panel-1-ctrl" class="panel-radios" type="radio" name="tab-radios" checked>
+   <header id="introduction">
+       <div class="introduction-title" data-value="CHECKTOBERFEST EVENTS">CHECKTOBERFEST EVENTS</div>
+   </header>
+
+
+   <!-- THE PANELS -->
+   <article id="panels">
+       <div class="container">
+           <section id="panel-1">
+               <main>
+                   <h1 class="title">What is Hacktoberfest?</h1>
+                   <p>Hacktoberfest is an exciting, month-long celebration of open source, held every October. Developers and tech enthusiasts from around the world come together to contribute to open source projects, learn new skills, and make meaningful contributions to the tech community.</p>
+                   <p>At CHECK24, we proudly support Hacktoberfest because, as passionate software developers, we believe in the power of open source to drive innovation and collaboration. This year, CHECK24 Düsseldorf is hosting two special Hacktoberfest events on October 16th and October 30th, starting at 5:00 PM. Expect great food, free drinks, and, of course, plenty of engaging conversations with friendly and highly skilled developers.</p>
+                   <p>Whether you’re a seasoned developer or just starting out, Hacktoberfest offers the perfect opportunity to improve your coding skills, connect with like-minded people, and make a real impact.</p>
+                   <p>Join us in celebrating Hacktoberfest and discover how rewarding it can be to contribute to open source!</p>
+
+                   <hr>
+
+                   <h1 class="title">How to find projects?</h1>
+                   <p>Finding the right project for Hacktoberfest is easy and fun! Here are some steps to help you get started:</p>
+                   <ol>
+                       <li><b>Explore GitHub & GitLab:</b> Most open source projects are hosted on platforms like GitHub or GitLab. Use the search function and filter by topics that interest you—anything from web development to data science.</li>
+                       <li><b>Look for ‘Hacktoberfest’ Labels:</b> Many projects add a special ‘Hacktoberfest’ label to highlight issues that are beginner-friendly or in need of attention. These are great starting points, especially if you’re new to open source.</li>
+                       <li><b>Check the Contribution Guidelines:</b> Before diving in, make sure to read the project’s contribution guidelines. These will explain how to submit your work and what the project maintainers expect.</li>
+                       <li><b>Join the Community:</b> Engage with the open source community for support and collaboration. You can join the official <a href="https://discord.gg/hacktoberfest" target="_blank">Hacktoberfest Discord server here</a> to connect with other participants, ask questions, and get guidance. Also, feel free to hop into the <a href="https://discord.gg/hZfhHpSH" target="_blank">Web Engineering Düsseldorf Hacktoberfest Discord server</a> to connect with our team and other contributors from CHECK24.</li>
+                       <li><b>Start Small:</b> If you’re new to contributing, start with small issues like documentation updates or fixing minor bugs. As you gain confidence, you can move on to more complex contributions.</li>
+                   </ol>
+                   <p>For more information on how to participate and find projects, visit the official Hacktoberfest page: <a href="https://hacktoberfest.com/participation/" target="_blank">https://hacktoberfest.com/participation/</a>.</p>
+                   <p>By following these steps and joining the vibrant community, you’ll find a project that fits your skills and interests. Let’s make this Hacktoberfest one to remember! Happy coding!</p>
+               </main>
+           </section>
+       </div>
+   </article>
+   </body>
+</html>

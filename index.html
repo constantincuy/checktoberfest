@@ -3,7 +3,7 @@
        <title>Checktoberfest '24 Events</title>
 
        <meta charset="UTF-8">
-       <meta name="description" content="Checktoberfest '23 Events">
+       <meta name="description" content="Checktoberfest '24 Events">
        <meta name="keywords" content="Hacktoberfest, Checktoberfest, Check24, Web Engineering Düsseldorf, Meetup, Dario Tilgner">
        <meta name="author" content="Dario Tilgner">
        <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -121,8 +121,11 @@
            .checktoberfest-events:hover .checktoberfest-events__overlay:after {
                opacity: 0.75;
            }
-           .checktoberfest-events-dus {
+           .checktoberfest-events-dus-1 {
                background-image: url('https://secure.meetupstatic.com/photos/event/c/0/6/2/600_523729250.webp?w=384');
+           }
+           .checktoberfest-events-dus-2 {
+               background-image: url('https://secure.meetupstatic.com/photos/event/c/0/c/d/600_523729357.webp?w=384');
            }
            .checktoberfest-events-agb {
                background-image: url('https://secure.meetupstatic.com/photos/event/c/0/6/2/600_523729250.webp?w=384');
@@ -514,6 +517,7 @@
                width: 20px;
                opacity: 0.5;
                z-index: 99;
+               display: none;
            }
            .panel-radios:nth-child(1) {
                transform: translateX(-50px);
@@ -564,53 +568,85 @@
                width: 90%;
                margin: 0 auto;
                padding: 48px 24px;
-               color: white;
                text-align: center;
                font-weight: bold;
-               font-size: 2.5rem;
+               font-size: 5rem;
            }
-           
            .introduction-title {
-            position: relative;
-            color: #262626;
-            padding: 20px 50px;
-            }
-            
-            .introduction-title:before {
-            background: #ECF7FD;
-            color: #063773;
-            content: 'Checktoberfest Events';
-            overflow: hidden;
-            position: absolute;  
-            top: 0;
-            padding: 20px 0px;
-                -webkit-clip-path: polygon(0% 0% , 30% 0%, 30% 100%, 0% 100%);  
-            clip-path: polygon(0% 0% , 30% 0%, 30% 100%, 0% 100%);
-            animation: slide 4s 1s linear infinite; 
-            } 
-           
-            @keyframes slide {      
-            50% {     
-                -webkit-clip-path: polygon(70% 0%, 100% 0%, 100% 100%, 70% 100%); 
-            } 
-        }  
+               font-family: 'Space Mono', monospace;
+               border-radius: clamp(0.4rem, 0.75vw, 1rem);
+               padding: 30px;
+               display: inline-block;
+               color: white;
+               text-shadow: 3px 2px 7px rgba(0,0,0,0.3);
+           }
+           .introduction-title:hover {
+               color: rgb(11,34,63);
+               text-shadow: 3px 2px 7px rgba(0,94,168,0.3);
+           }
+           .link-nav {
+               position: fixed;
+               width: 100%;
+               text-align: center;
+               z-index: 100;
+           }
+           .link-nav a {
+               color: white;
+               font-weight: bold;
+               font-size: 1.5rem;
+               padding: 10px;
+               background-color: rgba(76,96,133,0.8);
+               border-radius: 0 0 10px 10px;
+           }
+           .link-nav a::before {
+               content: "➡️ ";
+           }
        </style>
+
+       <script>
+           document.addEventListener("DOMContentLoaded", () => {
+               const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+               let interval = null;
+
+               document.querySelector(".introduction-title").onmouseover = event => {
+                   let iteration = 0;
+                   clearInterval(interval);
+
+                   interval = setInterval(() => {
+                       event.target.innerText = event.target.innerText
+                           .split("")
+                           .map((letter, index) => {
+                               if(index < iteration) {
+                                   return event.target.dataset.value[index];
+                               }
+
+                               return letters[Math.floor(Math.random() * 26)];
+                           })
+                           .join("");
+
+                       if(iteration >= event.target.dataset.value.length){
+                           clearInterval(interval);
+                       }
+
+                       iteration += 1 / 3;
+                   }, 30);
+               };
+           });
+       </script>
    </head>
    <body>
-   <!-- TAB CONTROLLERS -->
-   
-   <input id="panel-1-ctrl"
-          class="panel-radios" type="radio" name="tab-radios" checked>
+   <div class="link-nav">
+       <a href="hacktoberfest.html">Hacktoberfest explained</a>
+   </div>
+
+   <input id="panel-1-ctrl" class="panel-radios" type="radio" name="tab-radios" checked>
    <!--
-   <input id="panel-2-ctrl"
-          class="panel-radios" type="radio" name="tab-radios">
-   <input id="panel-3-ctrl"
-          class="panel-radios" type="radio" name="tab-radios">
-   <input id="nav-ctrl"
-          class="panel-radios" type="checkbox" name="nav-checkbox">
+   <input id="panel-2-ctrl" class="panel-radios" type="radio" name="tab-radios">
+   <input id="panel-3-ctrl" class="panel-radios" type="radio" name="tab-radios">
+   <input id="nav-ctrl" class="panel-radios" type="checkbox" name="nav-checkbox">
     -->
    <header id="introduction">
-       <div class="introduction-title">Checktoberfest Events</div>
+       <div class="introduction-title" data-value="CHECKTOBERFEST EVENTS">CHECKTOBERFEST EVENTS</div>
    </header>
 
    <!-- TABS LIST -->
@@ -639,14 +675,14 @@
                         </p>
                    </div>
                    <div class="checktoberfest-events-gallery">
-                       <div class="checktoberfest-events checktoberfest-events-dus">
+                       <div class="checktoberfest-events checktoberfest-events-dus-1">
                            <div class="checktoberfest-events__overlay">
                                <h2 class="checktoberfest-events__title">CHECKTOBERFEST 1/2</h2>
                                <a class="checktoberfest-events__link" target="_blank" href="https://www.meetup.com/web-engineering-duesseldorf/events/303667210/">Meetup</a>
                            </div>
                            <p class="event-date-title">WED, 16th Oct 2024 05:00 PM</p>
                        </div>
-                       <div class="checktoberfest-events checktoberfest-events-dus">
+                       <div class="checktoberfest-events checktoberfest-events-dus-2">
                            <div class="checktoberfest-events__overlay">
                                <h2 class="checktoberfest-events__title">CHECKTOBERFEST 2/2</h2>
                                <a class="checktoberfest-events__link" target="_blank" href="https://www.meetup.com/web-engineering-duesseldorf/events/303667551/">Meetup</a>
