@@ -6,7 +6,7 @@
     <title>What is Hacktoberfest? - Checktoberfest '24</title>
     <meta name="description" content="Learn about Hacktoberfest - A month-long celebration of open source software">
     <meta name="keywords" content="Hacktoberfest, Open Source, GitHub, GitLab, Contributing, CHECK24">
-    <meta name="author" content="CHECK24 Web Engineering Team">
+    <meta name="author" content="CHECK24 Düsseldorf">
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="https://www.check24.de/apple-touch-icon.png"/>
@@ -797,7 +797,6 @@
             </div>
         </div>
     </div>
-    </div>
 </nav>
 
 <!-- Hero Section -->
@@ -963,7 +962,6 @@
                     <a href="https://www.check24.de" target="_blank" class="footer-link">CHECK24.de</a>
                     <a href="https://jobs.check24.de" target="_blank" class="footer-link">Careers</a>
                     <a href="https://tech.check24.de" target="_blank" class="footer-link">Tech Blog</a>
-                    <a href="https://opensource.check24.de/" target="_blank" class="footer-link">Open Source</a>
                 </div>
             </div>
         </div>
@@ -982,6 +980,35 @@
         } else {
             navbar.classList.remove('scrolled');
         }
+    });
+
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
     });
 
     // Scroll animations
